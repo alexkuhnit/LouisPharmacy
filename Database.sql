@@ -35,16 +35,15 @@ create table physician(
 				constraint pk_physicianID primary key,
 	fName		varchar(25) not null,
 	lName		varchar(50) not null,
-	office		vachar(60) not null,
+	office		varchar(60) not null,
 )
 --Drug Table
 create table drug(
-	NDCPackageCode int(10) not null 
-		CONSTRAINT chk_NDC CHECK (phone not like '%[^0-9]%') 
+	NDCPackageCode int not null 
 		constraint pk_NDC primary key,
 	productName varchar(150),
 	strength varchar(20),
-	amount int(4),
+	amount int,
 
 
 )
@@ -53,9 +52,17 @@ create table drug(
 create table perscription(
 	perscriptionID int identity(1,1) 
 		constraint pk_perscriptionID primary key,
+	NDCPackageCode int not NULL FOREIGN key (NDCPackageCode) REFERENCES drug(NDCPackageCode),
+	patientID 	int not null FOREIGN key (patientID) REFERENCES patient(patientID),
+	physicianID int not null FOREIGN key (physicianID) REFERENCES physician(physicianID),
+	totalRefills int not NULL,
+	remainingRefills int not null,
+	TIME DATETIME not null
 )
 --Fulfillment table
 create table fulfillment(
 	fulfillmentID int identity(1,1)
-		constraint pk_fulfillmentID primary key,,
+		constraint pk_fulfillmentID primary key,
+	perscriptionID int not NULL FOREIGN KEY (perscriptionID) REFERENCES perscription(perscriptionID),
+	TIME DATETIME not null,
 )
