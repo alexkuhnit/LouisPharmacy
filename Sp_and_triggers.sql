@@ -2,16 +2,16 @@ use pharmacy
 go
 
 create TRIGGER trigger_remaining_refills
-on fullfillment
+on fulfillment
 after insert
 AS
     BEGIN
-        DECLARE @fulfilled INT(4)
-        declare @fulPerscriptionID int(10)
-        declare @totalRefills int(4)
+        DECLARE @fulfilled INT
+        declare @fulPerscriptionID int
+        declare @totalRefills int
 
         select @fulPerscriptionID = (select perscriptionID from inserted)
-        SELECT @fulfilled = (SELECT count(*) from fullfillment where perscriptionID = @fulPerscriptionID)
+        SELECT @fulfilled = (SELECT count(*) from fulfillment where perscriptionID = @fulPerscriptionID)
         select @totalRefills = (select totalRefills from perscription)
 
         BEGIN
@@ -22,6 +22,48 @@ AS
     END
 GO
 
+
+create TRIGGER trigger_remaining_refills_delete
+on fulfillment
+after delete
+AS
+    BEGIN
+        DECLARE @fulfilled INT
+        declare @fulPerscriptionID int
+        declare @totalRefills int
+
+        select @fulPerscriptionID = (select perscriptionID from deleted)
+        SELECT @fulfilled = (SELECT count(*) from fulfillment where perscriptionID = @fulPerscriptionID)
+        select @totalRefills = (select totalRefills from perscription)
+
+        BEGIN
+            update perscription
+            set remainingRefills = @totalRefills - @fulfilled
+            where perscriptionID = @fulPerscriptionID
+        END
+    END
+GO
+
+create TRIGGER trigger_remaining_refills_update
+on fulfillment
+after update
+AS
+    BEGIN
+        DECLARE @fulfilled INT
+        declare @fulPerscriptionID int
+        declare @totalRefills int
+
+        select @fulPerscriptionID = (select perscriptionID from inserted)
+        SELECT @fulfilled = (SELECT count(*) from fulfillment where perscriptionID = @fulPerscriptionID)
+        select @totalRefills = (select totalRefills from perscription)
+
+        BEGIN
+            update perscription
+            set remainingRefills = @totalRefills - @fulfilled
+            where perscriptionID = @fulPerscriptionID
+        END
+    END
+GO
 
 /*CREATE TRIGGER Trigger_Patient_Visit_Cost
 ON VISIT

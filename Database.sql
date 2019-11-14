@@ -6,7 +6,7 @@ description: Pharmacy Database Final Project
 create database Pharmacy
 go
 
-use Pharmacy
+use pharmacy
 
 --Patient Table
 create table patient(
@@ -25,9 +25,8 @@ create table patient(
 	cellPhone	char(10),
 	email		varchar(75),
 	DoB			date not null,
-	gender		varchar(6) not null 
-				check(gender in ('male', 'female')),
-	acctBalance	money default 0,
+	gender		char(6) not null 
+				check(gender in ('male', 'female'))
 )
 --physician Table
 create table physician(
@@ -39,7 +38,7 @@ create table physician(
 )
 --Drug Table
 create table drug(
-	NDCPackageCode int not null 
+	NDCPackageCode bigint not null 
 		constraint pk_NDC primary key,
 	productName varchar(150),
 	strength varchar(20),
@@ -52,12 +51,12 @@ create table drug(
 create table perscription(
 	perscriptionID int identity(1,1) 
 		constraint pk_perscriptionID primary key,
-	NDCPackageCode int not NULL FOREIGN key (NDCPackageCode) REFERENCES drug(NDCPackageCode),
+	NDCPackageCode bigint not NULL FOREIGN key (NDCPackageCode) REFERENCES drug(NDCPackageCode),
 	patientID 	int not null FOREIGN key (patientID) REFERENCES patient(patientID),
 	physicianID int not null FOREIGN key (physicianID) REFERENCES physician(physicianID),
 	totalRefills int not NULL,
-	remainingRefills int not null,
-	TIME DATETIME not null
+	remainingRefills int null,
+	TIME DATE not null
 )
 --Fulfillment table
 create table fulfillment(
@@ -66,3 +65,4 @@ create table fulfillment(
 	perscriptionID int not NULL FOREIGN KEY (perscriptionID) REFERENCES perscription(perscriptionID),
 	TIME DATETIME not null,
 )
+go
