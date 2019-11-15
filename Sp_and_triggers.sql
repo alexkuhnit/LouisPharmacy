@@ -1,6 +1,7 @@
 use pharmacy
 go
 
+--drop TRIGGER trigger_remaining_refills
 create TRIGGER trigger_remaining_refills
 on fulfillment
 after insert
@@ -9,20 +10,28 @@ AS
         DECLARE @fulfilled INT
         declare @fulPrescriptionID int
         declare @totalRefills int
+		declare @remainingRefills int
 
         select @fulPrescriptionID = (select prescriptionID from inserted)
         SELECT @fulfilled = (SELECT count(*) from fulfillment where prescriptionID = @fulPrescriptionID)
-        select @totalRefills = (select totalRefills from prescription)
+        select @totalRefills = (select totalRefills from prescription  where prescriptionID = @fulPrescriptionID)
+		select @remainingRefills = (select remainingRefills from prescription  where prescriptionID = @fulPrescriptionID)
 
-        BEGIN
-            update prescription
-            set remainingRefills = @totalRefills - @fulfilled
-            where prescriptionID = @fulPrescriptionID
-        END
+			IF @remainingRefills > 0
+				BEGIN
+					update prescription
+					set remainingRefills = @totalRefills - @fulfilled
+					where prescriptionID = @fulPrescriptionID
+				END
+			ELSE
+				BEGIN
+					ROLLBACK TRANSACTION
+					RAISERROR ('Unable to update record.',16,1)
+				END
     END
 GO
 
-
+--drop TRIGGER trigger_remaining_refills_delete
 create TRIGGER trigger_remaining_refills_delete
 on fulfillment
 after delete
@@ -31,19 +40,23 @@ AS
         DECLARE @fulfilled INT
         declare @fulPrescriptionID int
         declare @totalRefills int
+		declare @remainingRefills int
+
 
         select @fulPrescriptionID = (select prescriptionID from deleted)
         SELECT @fulfilled = (SELECT count(*) from fulfillment where prescriptionID = @fulPrescriptionID)
-        select @totalRefills = (select totalRefills from prescription)
+        select @totalRefills = (select totalRefills from prescription  where prescriptionID = @fulPrescriptionID)
+		select @remainingRefills = (select remainingRefills from prescription  where prescriptionID = @fulPrescriptionID)
 
-        BEGIN
-            update prescription
-            set remainingRefills = @totalRefills - @fulfilled
-            where prescriptionID = @fulPrescriptionID
-        END
+				BEGIN
+					update prescription
+					set remainingRefills = @totalRefills - @fulfilled
+					where prescriptionID = @fulPrescriptionID
+				END
+
     END
 GO
-
+--drop trigger trigger_remaining_refills_update
 create TRIGGER trigger_remaining_refills_update
 on fulfillment
 after update
@@ -52,16 +65,25 @@ AS
         DECLARE @fulfilled INT
         declare @fulPrescriptionID int
         declare @totalRefills int
+		declare @remainingRefills int
+
 
         select @fulPrescriptionID = (select prescriptionID from inserted)
         SELECT @fulfilled = (SELECT count(*) from fulfillment where prescriptionID = @fulPrescriptionID)
-        select @totalRefills = (select totalRefills from prescription)
+        select @totalRefills = (select totalRefills from prescription  where prescriptionID = @fulPrescriptionID)
+		select @remainingRefills = (select remainingRefills from prescription  where prescriptionID = @fulPrescriptionID)
 
-        BEGIN
-            update prescription
-            set remainingRefills = @totalRefills - @fulfilled
-            where prescriptionID = @fulPrescriptionID
-        END
+			IF @remainingRefills > 0
+				BEGIN
+					update prescription
+					set remainingRefills = @totalRefills - @fulfilled
+					where prescriptionID = @fulPrescriptionID
+				END
+			ELSE
+				BEGIN
+					ROLLBACK TRANSACTION
+					RAISERROR ('Unable to update record.',16,1)
+				END
     END
 GO
 
@@ -158,13 +180,13 @@ GO
 
 CREATE PROC AddPrescription(
 	@NDCPackageCode		varchar(11),
-	@patientID			VARCHAR(25),
-	@physicianID		CHAR(1) = NULL,
-	@totalRefills		DATE,
+	@patientID			int,
+	@physicianID		int,
+	@totalRefills		int,
 
-	@remainingRefills	varCHAR(6),
-	@time				VARCHAR(30) = NULL
-)
+	@remainingRefills	int,
+	@time				datetime
+	)
 AS
 	BEGIN
 	SET NOCOUNT ON;
