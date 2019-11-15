@@ -43,5 +43,14 @@ namespace FinalProject
             cForm.Show();
             cForm.Focus();
         }
+
+        private void mnuSearchPatient_Click(object sender, EventArgs e)
+        {
+            frmSearchPrescriptions dForm = new frmSearchPrescriptions();
+            dForm.MdiParent = this;
+            dForm.StartPosition = FormStartPosition.CenterScreen;
+            dForm.Show();
+            dForm.Focus();
+        }
     }
 }

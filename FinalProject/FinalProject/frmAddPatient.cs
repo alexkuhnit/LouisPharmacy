@@ -34,7 +34,7 @@ namespace FinalProject
             string street2 = txtStreet2.Text.Trim();
             string city = txtCity.Text.Trim();
 
-            string state = txtState.Text.Trim();
+            string state = cboState.SelectedValue.ToString();
             string zip = txtZip.Text.Trim();
             string homePhone = txtHomePhone.Text.Trim();
             string workPhone = txtWorkPhone.Text.Trim();
@@ -45,6 +45,13 @@ namespace FinalProject
             PharmacyDataTier bPharm = new PharmacyDataTier();
             DataSet ds1 = new DataSet();
             ds1 = bPharm.AddPatient( fName,  lName,  mInit,  DOB,gender,  street1,  street2,  city,state,  zip,  homePhone,  workPhone, cellPhone, email);
+        }
+
+        private void frmAddPatient_Load(object sender, EventArgs e)
+        {
+            cboState.DataSource = StateManager.getStates();
+            cboState.DisplayMember = "abbreviation";
+            cboState.ValueMember = "abbreviation";
         }
     }
 }

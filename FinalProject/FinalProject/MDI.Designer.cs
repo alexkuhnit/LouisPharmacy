@@ -33,13 +33,16 @@
             this.mnuAddPhysican = new System.Windows.Forms.ToolStripMenuItem();
             this.patientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prescriptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuSearch = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuSearchPatient = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnu
             // 
             this.mnu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuAdd});
+            this.mnuAdd,
+            this.mnuSearch});
             this.mnu.Location = new System.Drawing.Point(0, 0);
             this.mnu.Name = "mnu";
             this.mnu.Size = new System.Drawing.Size(1358, 24);
@@ -59,23 +62,38 @@
             // mnuAddPhysican
             // 
             this.mnuAddPhysican.Name = "mnuAddPhysican";
-            this.mnuAddPhysican.Size = new System.Drawing.Size(180, 22);
+            this.mnuAddPhysican.Size = new System.Drawing.Size(137, 22);
             this.mnuAddPhysican.Text = "Physician";
             this.mnuAddPhysican.Click += new System.EventHandler(this.physicianToolStripMenuItem_Click);
             // 
             // patientToolStripMenuItem
             // 
             this.patientToolStripMenuItem.Name = "patientToolStripMenuItem";
-            this.patientToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.patientToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.patientToolStripMenuItem.Text = "Patient";
             this.patientToolStripMenuItem.Click += new System.EventHandler(this.patientToolStripMenuItem_Click);
             // 
             // prescriptionToolStripMenuItem
             // 
             this.prescriptionToolStripMenuItem.Name = "prescriptionToolStripMenuItem";
-            this.prescriptionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.prescriptionToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.prescriptionToolStripMenuItem.Text = "Prescription";
             this.prescriptionToolStripMenuItem.Click += new System.EventHandler(this.prescriptionToolStripMenuItem_Click);
+            // 
+            // mnuSearch
+            // 
+            this.mnuSearch.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuSearchPatient});
+            this.mnuSearch.Name = "mnuSearch";
+            this.mnuSearch.Size = new System.Drawing.Size(54, 20);
+            this.mnuSearch.Text = "Search";
+            // 
+            // mnuSearchPatient
+            // 
+            this.mnuSearchPatient.Name = "mnuSearchPatient";
+            this.mnuSearchPatient.Size = new System.Drawing.Size(111, 22);
+            this.mnuSearchPatient.Text = "Patient";
+            this.mnuSearchPatient.Click += new System.EventHandler(this.mnuSearchPatient_Click);
             // 
             // MDI
             // 
@@ -87,6 +105,7 @@
             this.MainMenuStrip = this.mnu;
             this.Name = "MDI";
             this.Text = "MDI";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.mnu.ResumeLayout(false);
             this.mnu.PerformLayout();
             this.ResumeLayout(false);
@@ -101,5 +120,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuAddPhysican;
         private System.Windows.Forms.ToolStripMenuItem patientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem prescriptionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuSearch;
+        private System.Windows.Forms.ToolStripMenuItem mnuSearchPatient;
     }
 }

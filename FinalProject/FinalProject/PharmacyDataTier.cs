@@ -160,6 +160,172 @@ namespace FinalProject
             }
         }
 
+        public DataSet GetPatient(string fName, string lName, string patientID)
+        {
+            try
+            {
+                //open connection
+                myConn.Open();
+                //Clear command argument
+                cmdString.Parameters.Clear();
+                //command
+                cmdString.Connection = myConn;
+                cmdString.CommandText = connString;
+                cmdString.CommandType = CommandType.StoredProcedure;
+                cmdString.CommandTimeout = 1500;
+                cmdString.CommandText = "SearchPatient";
 
+                //define input parameters
+                cmdString.Parameters.Add("@fname", SqlDbType.VarChar, 25).Value = fName;
+                cmdString.Parameters.Add("@lName", SqlDbType.VarChar, 25).Value = lName;
+                cmdString.Parameters.Add("@patientID", SqlDbType.VarChar, 25).Value = patientID;
+
+                //adapter and dataset
+                SqlDataAdapter aAdapter = new SqlDataAdapter();
+                aAdapter.SelectCommand = cmdString;
+                DataSet aDataSet = new DataSet();
+
+                //filladapter
+                aAdapter.Fill(aDataSet);
+                //return data set
+                return aDataSet;
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+            finally
+            {
+                myConn.Close();
+            }
+        }
+        public DataSet FillPatient()
+        {
+            try
+            {
+                //open connection
+                myConn.Open();
+                //Clear command argument
+                cmdString.Parameters.Clear();
+                //command
+                cmdString.Connection = myConn;
+                cmdString.CommandText = connString;
+                cmdString.CommandType = CommandType.StoredProcedure;
+                cmdString.CommandTimeout = 1500;
+                cmdString.CommandText = "FillPatient";
+
+                //adapter and dataset
+                SqlDataAdapter aAdapter = new SqlDataAdapter();
+                aAdapter.SelectCommand = cmdString;
+                DataSet aDataSet = new DataSet();
+
+                //filladapter
+                aAdapter.Fill(aDataSet);
+                //return data set
+                return aDataSet;
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+            finally
+            {
+                myConn.Close();
+            }
+        }
+        public DataSet GetPrescription(string patientID)
+        {
+            try
+            {
+                //open connection
+                myConn.Open();
+                //Clear command argument
+                cmdString.Parameters.Clear();
+                //command
+                cmdString.Connection = myConn;
+                cmdString.CommandText = connString;
+                cmdString.CommandType = CommandType.StoredProcedure;
+                cmdString.CommandTimeout = 1500;
+                cmdString.CommandText = "SearchPrescription";
+
+                //define input parameters
+                cmdString.Parameters.Add("@patientID", SqlDbType.VarChar, 25).Value = patientID;
+
+                //adapter and dataset
+                SqlDataAdapter aAdapter = new SqlDataAdapter();
+                aAdapter.SelectCommand = cmdString;
+                DataSet aDataSet = new DataSet();
+
+                //filladapter
+                aAdapter.Fill(aDataSet);
+                //return data set
+                return aDataSet;
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+            finally
+            {
+                myConn.Close();
+            }
+        }
+        public DataSet UpdatePatient(string patientID, string fName, string lName, string mInit, DateTime DOB,
+                                    string gender, string street1, string street2, string city,
+                                    string state, string zip, string homePhone, string workPhone,
+                                    string cellPhone, string email)
+        {
+            try
+            {
+                //open connection
+                myConn.Open();
+                //Clear command argument
+                cmdString.Parameters.Clear();
+                //command
+                cmdString.Connection = myConn;
+                cmdString.CommandText = connString;
+                cmdString.CommandType = CommandType.StoredProcedure;
+                cmdString.CommandTimeout = 1500;
+                cmdString.CommandText = "AddPatient";
+
+                //define input parameters
+                cmdString.Parameters.Add("@patientID", SqlDbType.VarChar, 25).Value = patientID;
+                cmdString.Parameters.Add("@fname", SqlDbType.VarChar, 25).Value = fName;
+                cmdString.Parameters.Add("@minit", SqlDbType.VarChar, 1).Value = mInit;
+                cmdString.Parameters.Add("@lName", SqlDbType.VarChar, 25).Value = lName;
+                cmdString.Parameters.Add("@DOB", SqlDbType.Date).Value = DOB;
+
+                cmdString.Parameters.Add("@gender", SqlDbType.VarChar, 6).Value = gender;
+                cmdString.Parameters.Add("@street1", SqlDbType.VarChar, 30).Value = street1;
+                cmdString.Parameters.Add("@street2", SqlDbType.VarChar, 30).Value = street2;
+                cmdString.Parameters.Add("@city", SqlDbType.VarChar, 13).Value = city;
+
+                cmdString.Parameters.Add("@state", SqlDbType.Char, 2).Value = state;
+                cmdString.Parameters.Add("@zip", SqlDbType.Char, 5).Value = zip;
+                cmdString.Parameters.Add("@homePhone", SqlDbType.Char, 10).Value = homePhone;
+                cmdString.Parameters.Add("@workPhone", SqlDbType.Char, 10).Value = workPhone;
+
+                cmdString.Parameters.Add("@cellPhone", SqlDbType.Char, 10).Value = cellPhone;
+                cmdString.Parameters.Add("@email", SqlDbType.VarChar, 75).Value = email;
+
+                //adapter and dataset
+                SqlDataAdapter aAdapter = new SqlDataAdapter();
+                aAdapter.SelectCommand = cmdString;
+                DataSet aDataSet = new DataSet();
+
+                //filladapter
+                aAdapter.Fill(aDataSet);
+                //return data set
+                return aDataSet;
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+            finally
+            {
+                myConn.Close();
+            }
+        }
     }
 }

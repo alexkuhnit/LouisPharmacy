@@ -47,6 +47,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmFulfillment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFulfillment.Designer.cs">
+      <DependentUpon>frmFulfillment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPatientPrescription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPatientPrescription.Designer.cs">
+      <DependentUpon>frmPatientPrescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSearchPrescriptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSearchPrescriptions.Designer.cs">
+      <DependentUpon>frmSearchPrescriptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddPatient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +98,17 @@
     <Compile Include="PharmacyDataTier.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="state.cs" />
+    <Compile Include="StateManager.cs" />
+    <EmbeddedResource Include="frmFulfillment.resx">
+      <DependentUpon>frmFulfillment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPatientPrescription.resx">
+      <DependentUpon>frmPatientPrescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSearchPrescriptions.resx">
+      <DependentUpon>frmSearchPrescriptions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddPatient.resx">
       <DependentUpon>frmAddPatient.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,6 +145,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="State.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

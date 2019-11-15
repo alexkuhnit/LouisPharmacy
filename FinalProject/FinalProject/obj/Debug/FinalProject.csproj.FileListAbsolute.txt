@@ -11,3 +11,6 @@ C:\Users\aethorix\Source\Repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProjec
 C:\Users\aethorix\Source\Repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\obj\Debug\FinalProject.frmAddPhysician.resources
 C:\Users\aethorix\Source\Repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\obj\Debug\FinalProject.frmAddPatient.resources
 C:\Users\aethorix\Source\Repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\obj\Debug\FinalProject.frmAddPrescription.resources
+C:\Users\aethorix\source\repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\obj\Debug\FinalProject.frmSearchPrescriptions.resources
+C:\Users\aethorix\source\repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\obj\Debug\FinalProject.frmPatientPrescription.resources
+C:\Users\aethorix\source\repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\obj\Debug\FinalProject.frmFulfillment.resources

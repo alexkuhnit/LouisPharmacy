@@ -111,6 +111,7 @@ GO*/
 Stored Procedures-----------------------
 */
 
+--add physician
 create proc [dbo].[AddPhysician](
 	@fName		varchar(25),
 	@mInit		char(1),
@@ -138,6 +139,7 @@ as
 	END
 GO
 
+--add patient
 CREATE PROC AddPatient(
 	@FNAME			VARCHAR(25),
 	@LNAME			VARCHAR(25),
@@ -178,6 +180,8 @@ AS
 	END
 GO
 
+
+--add prescription
 CREATE PROC AddPrescription(
 	@NDCPackageCode		varchar(11),
 	@patientID			int,
@@ -208,7 +212,110 @@ AS
 	END
 GO
 
+--SearchPatients
+
+create PROC [dbo].[SearchPatient](
+    @patientID varchar(20),
+    @fname varchar(25),
+    @lname varchar(25)
+)
+AS
+    BEGIN
+        SELECT *
+            from patient
+            where (upper(lname)like '%' + upper(@lname) + '%' or upper(lname) = '')
+            and (upper(fname)like '%' + upper(@fname) + '%' or upper(fname) = '')
+            and (cast(patientID as varchar)like '%' + upper(@patientID) + '%' or cast(patientID as varchar) = '')
+    END
+go
+
+
+
+create PROC [dbo].[FillPatient]
+AS
+    BEGIN
+        SELECT *
+            from patient
+    END
+go
+
+
+
+create PROC [dbo].[SearchPrescription](
+    @patientID varchar(20)
+)
+AS
+    BEGIN
+        SELECT *
+            from prescription
+            where (cast(patientID as varchar)like '%' + upper(@patientID) + '%' or cast(patientID as varchar) = '')
+    END
+go
+
+--Update Patient
+CREATE PROC UpdatePatient(
+	@patientID		int,
+
+	@FNAME			VARCHAR(25) = NULL,
+	@LNAME			VARCHAR(25) = NULL,
+	@MINIT			CHAR(1) = NULL,
+	@DOB			DATE = NULL,
+
+	@GENDER			varCHAR(6) = NULL,
+	@STREET1		VARCHAR(30) = NULL,
+	@STREET2		VARCHAR(30) = NULL,
+	@CITY			VARCHAR(30) = NULL,
+
+	@STATE			CHAR(2),
+	@ZIP			INT,
+	@HOMEPHONE		VARCHAR(15),
+	@WORKPHONE		VARCHAR(15) = NULL,
+
+	@CELLPHONE		VARCHAR(15) = NULL,
+	@EMAIL		VARCHAR(100)
+)
+AS
+	BEGIN
+		update patient
+		set patientID = isnull(@patientID, patientID),
+			fname = isnull(@FNAME, fname),
+			lname = isnull(@LNAME , lname),
+			minit = isnull(@MINIT , minit),
+			dob = isnull(@DOB ,dob ),
+			gender = isnull(@GENDER , gender),
+			street1 = isnull(@STREET1 ,street1 ),
+			street2 = isnull(@STREET2 , street2),
+			city = isnull(@CITY ,city ),
+			state = isnull(@STATE , state),
+			zip = isnull(@ZIP ,zip ),
+			homephone = isnull(@HOMEPHONE ,homephone ),
+			workphone = isnull(@WORKPHONE ,workphone ),
+			cellphone = isnull(@CELLPHONE ,cellphone ),
+			email = isnull(@EMAIL ,email )
+		from patient
+		where patientID = @patientID
+	end
+go
 /*
+	SET NOCOUNT ON;
+		BEGIN TRANSACTION
+			INSERT INTO PATIENT( FNAME, LNAME, MINIT, DOB, GENDER, STREET1, STREET2, CITY, STATE, ZIP, HOMEPHONE, WORKPHONE, CELLPHONE, EMAIL)
+			VALUES (@FNAME, @LNAME, @MINIT, @DOB, @GENDER, @STREET1, @STREET2, @CITY, @STATE, @ZIP, @HOMEPHONE, @WORKPHONE, @CELLPHONE, @EMAIL)
+
+			IF @@ERROR <> 0
+				BEGIN
+					ROLLBACK TRANSACTION
+					RAISERROR ('Unable to insert record.',16,1)
+					RETURN -1
+				END
+			ELSE
+				BEGIN
+					COMMIT TRANSACTION
+					PRINT 'Record added successfully!'
+				END
+	END
+GO
+
 ALTER PROC [dbo].[SearchStudent2](
     @student_ID varchar(6),
     @fname varchar(25),
