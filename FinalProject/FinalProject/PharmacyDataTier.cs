@@ -116,6 +116,50 @@ namespace FinalProject
                 myConn.Close();
             }
         }
+        public DataSet AddPrescription(string NDCPackageCode, string patientID, string physicianID, string totalRefills, DateTime time)
+        {
+            try
+            {
+                //open connection
+                myConn.Open();
+                //Clear command argument
+                cmdString.Parameters.Clear();
+                //command
+                cmdString.Connection = myConn;
+                cmdString.CommandText = connString;
+                cmdString.CommandType = CommandType.StoredProcedure;
+                cmdString.CommandTimeout = 1500;
+                cmdString.CommandText = "AddPrescription";
+
+                //define input parameters
+                cmdString.Parameters.Add("@NDCPackageCode", SqlDbType.VarChar, 11).Value = NDCPackageCode;
+                cmdString.Parameters.Add("@patientID", SqlDbType.Int).Value = patientID;
+                cmdString.Parameters.Add("@physicianID", SqlDbType.Int).Value = physicianID;
+                cmdString.Parameters.Add("@totalRefills", SqlDbType.Int).Value = totalRefills;
+                cmdString.Parameters.Add("@remainingRefills", SqlDbType.Int).Value = totalRefills;
+
+                cmdString.Parameters.Add("@time", SqlDbType.DateTime).Value = time;
+
+                //adapter and dataset
+                SqlDataAdapter aAdapter = new SqlDataAdapter();
+                aAdapter.SelectCommand = cmdString;
+                DataSet aDataSet = new DataSet();
+
+                //filladapter
+                aAdapter.Fill(aDataSet);
+                //return data set
+                return aDataSet;
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+            finally
+            {
+                myConn.Close();
+            }
+        }
+
 
     }
 }

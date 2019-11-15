@@ -93,5 +93,25 @@ namespace FinalProject
         {
 
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            //get the values
+            string patientID = cboPatientID.SelectedValue.ToString();
+            string physicianID = cboPhysicianID.SelectedValue.ToString();
+            string NDCPackageCode = cboDrug.SelectedValue.ToString();
+            string totalRefills = txtRefill.Text.Trim();
+            DateTime time = DateTime.Parse(txtDate.Text.Trim());
+
+            //Send it throug the datatier
+            PharmacyDataTier bPharm = new PharmacyDataTier();
+            DataSet ds1 = new DataSet();
+            ds1 = bPharm.AddPrescription( NDCPackageCode,  patientID,  physicianID,  totalRefills,  time);
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

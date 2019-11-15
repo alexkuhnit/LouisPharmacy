@@ -36,6 +36,10 @@
             this.lblPhysician = new System.Windows.Forms.Label();
             this.lblDrug = new System.Windows.Forms.Label();
             this.lblRefills = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.txtDate = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // cboDrug
@@ -107,11 +111,51 @@
             this.lblRefills.Text = "Refill Amount:";
             this.lblRefills.Click += new System.EventHandler(this.lblRefills_Click);
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(602, 89);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 9;
+            this.btnAdd.Text = "Add Prescription";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(602, 118);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 10;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Location = new System.Drawing.Point(78, 217);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(86, 13);
+            this.lblTime.TabIndex = 12;
+            this.lblTime.Text = "Date Prescribed:";
+            // 
+            // txtDate
+            // 
+            this.txtDate.Location = new System.Drawing.Point(170, 210);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.Size = new System.Drawing.Size(100, 20);
+            this.txtDate.TabIndex = 11;
+            // 
             // frmAddPrescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblTime);
+            this.Controls.Add(this.txtDate);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblRefills);
             this.Controls.Add(this.lblDrug);
             this.Controls.Add(this.lblPhysician);
@@ -138,5 +182,9 @@
         private System.Windows.Forms.Label lblPhysician;
         private System.Windows.Forms.Label lblDrug;
         private System.Windows.Forms.Label lblRefills;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.TextBox txtDate;
     }
 }
