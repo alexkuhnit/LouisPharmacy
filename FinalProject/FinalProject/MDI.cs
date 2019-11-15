@@ -34,5 +34,14 @@ namespace FinalProject
             bForm.Show();
             bForm.Focus();
         }
+
+        private void prescriptionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddPrescription cForm = new frmAddPrescription();
+            cForm.MdiParent = this;
+            cForm.StartPosition = FormStartPosition.CenterScreen;
+            cForm.Show();
+            cForm.Focus();
+        }
     }
 }

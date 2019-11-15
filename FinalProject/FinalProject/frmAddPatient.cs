@@ -44,7 +44,7 @@ namespace FinalProject
 
             PharmacyDataTier bPharm = new PharmacyDataTier();
             DataSet ds1 = new DataSet();
-            ds1 = bPharm.AddPatient( fName,  lName,  mInit,  DOB,gender,  street1,  street2,  city,state,  zip,  homePhone,  workPhone, cellPhone,  email);
+            ds1 = bPharm.AddPatient( fName,  lName,  mInit,  DOB,gender,  street1,  street2,  city,state,  zip,  homePhone,  workPhone, cellPhone, email);
         }
     }
 }

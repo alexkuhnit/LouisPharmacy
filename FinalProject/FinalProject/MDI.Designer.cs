@@ -42,7 +42,7 @@
             this.mnuAdd});
             this.mnu.Location = new System.Drawing.Point(0, 0);
             this.mnu.Name = "mnu";
-            this.mnu.Size = new System.Drawing.Size(800, 24);
+            this.mnu.Size = new System.Drawing.Size(1358, 24);
             this.mnu.TabIndex = 0;
             this.mnu.Text = "menuStrip1";
             // 
@@ -75,12 +75,13 @@
             this.prescriptionToolStripMenuItem.Name = "prescriptionToolStripMenuItem";
             this.prescriptionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.prescriptionToolStripMenuItem.Text = "Prescription";
+            this.prescriptionToolStripMenuItem.Click += new System.EventHandler(this.prescriptionToolStripMenuItem_Click);
             // 
             // MDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1358, 686);
             this.Controls.Add(this.mnu);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.mnu;

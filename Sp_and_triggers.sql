@@ -115,6 +115,77 @@ as
 				END
 	END
 GO
+
+CREATE PROC AddPatient(
+	@FNAME			VARCHAR(25),
+	@LNAME			VARCHAR(25),
+	@MINIT			CHAR(1) = NULL,
+	@DOB			DATE,
+
+	@GENDER			varCHAR(6),
+	@STREET1		VARCHAR(30) = NULL,
+	@STREET2		VARCHAR(30) = NULL,
+	@CITY			VARCHAR(30) = NULL,
+
+	@STATE		CHAR(2) = NULL,
+	@ZIP			INT = NULL,
+	@HOMEPHONE		VARCHAR(15) = NULL,
+	@WORKPHONE		VARCHAR(15) = NULL,
+
+	@CELLPHONE		VARCHAR(15) = NULL,
+	@EMAIL		VARCHAR(100) = NULL
+)
+AS
+	BEGIN
+	SET NOCOUNT ON;
+		BEGIN TRANSACTION
+			INSERT INTO PATIENT( FNAME, LNAME, MINIT, DOB, GENDER, STREET1, STREET2, CITY, STATE, ZIP, HOMEPHONE, WORKPHONE, CELLPHONE, EMAIL)
+			VALUES (@FNAME, @LNAME, @MINIT, @DOB, @GENDER, @STREET1, @STREET2, @CITY, @STATE, @ZIP, @HOMEPHONE, @WORKPHONE, @CELLPHONE, @EMAIL)
+
+			IF @@ERROR <> 0
+				BEGIN
+					ROLLBACK TRANSACTION
+					RAISERROR ('Unable to insert record.',16,1)
+					RETURN -1
+				END
+			ELSE
+				BEGIN
+					COMMIT TRANSACTION
+					PRINT 'Record added successfully!'
+				END
+	END
+GO
+
+CREATE PROC AddPrescription(
+	@NDCPackageCode		varchar(11),
+	@patientID			VARCHAR(25),
+	@physicianID		CHAR(1) = NULL,
+	@totalRefills		DATE,
+
+	@remainingRefills	varCHAR(6),
+	@time				VARCHAR(30) = NULL
+)
+AS
+	BEGIN
+	SET NOCOUNT ON;
+		BEGIN TRANSACTION
+			INSERT INTO PRESCRIPTION(NDCPackageCode, patientID, physicianID, totalRefills, remainingRefills, time)
+			VALUES (@NDCPackageCode, @patientID, @physicianID, @totalRefills, @remainingRefills, @time)
+
+			IF @@ERROR <> 0
+				BEGIN
+					ROLLBACK TRANSACTION
+					RAISERROR ('Unable to insert record.',16,1)
+					RETURN -1
+				END
+			ELSE
+				BEGIN
+					COMMIT TRANSACTION
+					PRINT 'Record added successfully!'
+				END
+	END
+GO
+
 /*
 ALTER PROC [dbo].[SearchStudent2](
     @student_ID varchar(6),

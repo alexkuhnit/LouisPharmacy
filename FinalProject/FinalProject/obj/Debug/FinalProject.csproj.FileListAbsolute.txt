@@ -10,3 +10,4 @@ C:\Users\aethorix\Source\Repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProjec
 C:\Users\aethorix\Source\Repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\obj\Debug\FinalProject.pdb
 C:\Users\aethorix\Source\Repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\obj\Debug\FinalProject.frmAddPhysician.resources
 C:\Users\aethorix\Source\Repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\obj\Debug\FinalProject.frmAddPatient.resources
+C:\Users\aethorix\Source\Repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\obj\Debug\FinalProject.frmAddPrescription.resources
