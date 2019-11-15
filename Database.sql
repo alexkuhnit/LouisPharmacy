@@ -33,8 +33,11 @@ create table physician(
 	physicianID int identity(1,1) not null 
 				constraint pk_physicianID primary key,
 	fName		varchar(25) not null,
+	mInit		char(1) not null,
 	lName		varchar(50) not null,
 	office		varchar(60) not null,
+	phoneNum	char(10) not null,
+	licenseNum	int not null
 )
 --Drug Table
 create table drug(
@@ -47,10 +50,10 @@ create table drug(
 
 )
 
---Perscription Table
-create table perscription(
-	perscriptionID int identity(1,1) 
-		constraint pk_perscriptionID primary key,
+--Prescription Table
+create table prescription(
+	prescriptionID int identity(1,1) 
+		constraint pk_prescriptionID primary key,
 	NDCPackageCode bigint not NULL FOREIGN key (NDCPackageCode) REFERENCES drug(NDCPackageCode),
 	patientID 	int not null FOREIGN key (patientID) REFERENCES patient(patientID),
 	physicianID int not null FOREIGN key (physicianID) REFERENCES physician(physicianID),
@@ -62,7 +65,7 @@ create table perscription(
 create table fulfillment(
 	fulfillmentID int identity(1,1)
 		constraint pk_fulfillmentID primary key,
-	perscriptionID int not NULL FOREIGN KEY (perscriptionID) REFERENCES perscription(perscriptionID),
+	prescriptionID int not NULL FOREIGN KEY (prescriptionID) REFERENCES prescription(prescriptionID),
 	TIME DATETIME not null,
 )
 go

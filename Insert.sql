@@ -25,7 +25,7 @@ values
 	('6838211905', 'Azathioprine', '75 mg', '500'),
 	('6878873313', 'Tacrolimus', '1 mg', '30')
 
-insert into perscription
+insert into prescription
 values
 	('0009006607','1','1','4','4','11/13/2019')
 
