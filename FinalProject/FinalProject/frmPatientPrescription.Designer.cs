@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cboGender = new System.Windows.Forms.ComboBox();
             this.lblGender = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -62,6 +63,7 @@
             this.cboState = new System.Windows.Forms.ComboBox();
             this.txtCity = new System.Windows.Forms.TextBox();
             this.chkEnableEdit = new System.Windows.Forms.CheckBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrescriptions)).BeginInit();
             this.SuspendLayout();
             // 
@@ -437,5 +439,6 @@
         private System.Windows.Forms.ComboBox cboState;
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.CheckBox chkEnableEdit;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
