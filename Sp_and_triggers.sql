@@ -251,6 +251,17 @@ AS
             where (cast(patientID as varchar)like '%' + upper(@patientID) + '%' or cast(patientID as varchar) = '')
     END
 go
+create PROC [dbo].[SearchPrescriptionPrescriptionID](
+    @prescriptionID varchar(20)
+)
+AS
+    BEGIN
+        SELECT *
+            from prescription
+            where (cast(prescriptionID as varchar)like '%' + upper(@prescriptionID) + '%' or cast(prescriptionID as varchar) = '')
+    END
+GO
+
 
 --Update Patient
 CREATE PROC UpdatePatient(
