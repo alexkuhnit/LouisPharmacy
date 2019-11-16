@@ -58,13 +58,18 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.cboGender = new System.Windows.Forms.ComboBox();
             this.cboState = new System.Windows.Forms.ComboBox();
+            this.lblAddPatient = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(410, 51);
+            this.btnExit.Location = new System.Drawing.Point(614, 513);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.Size = new System.Drawing.Size(90, 30);
             this.btnExit.TabIndex = 29;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -72,9 +77,9 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(410, 22);
+            this.btnAdd.Location = new System.Drawing.Point(614, 443);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(90, 30);
             this.btnAdd.TabIndex = 28;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -83,7 +88,7 @@
             // lblStreet2
             // 
             this.lblStreet2.AutoSize = true;
-            this.lblStreet2.Location = new System.Drawing.Point(197, 188);
+            this.lblStreet2.Location = new System.Drawing.Point(284, 37);
             this.lblStreet2.Name = "lblStreet2";
             this.lblStreet2.Size = new System.Drawing.Size(44, 13);
             this.lblStreet2.TabIndex = 27;
@@ -91,7 +96,7 @@
             // 
             // txtStreet2
             // 
-            this.txtStreet2.Location = new System.Drawing.Point(247, 181);
+            this.txtStreet2.Location = new System.Drawing.Point(334, 30);
             this.txtStreet2.Name = "txtStreet2";
             this.txtStreet2.Size = new System.Drawing.Size(136, 20);
             this.txtStreet2.TabIndex = 26;
@@ -99,7 +104,7 @@
             // lblStreet1
             // 
             this.lblStreet1.AutoSize = true;
-            this.lblStreet1.Location = new System.Drawing.Point(197, 162);
+            this.lblStreet1.Location = new System.Drawing.Point(33, 33);
             this.lblStreet1.Name = "lblStreet1";
             this.lblStreet1.Size = new System.Drawing.Size(44, 13);
             this.lblStreet1.TabIndex = 25;
@@ -107,7 +112,7 @@
             // 
             // txtStreet1
             // 
-            this.txtStreet1.Location = new System.Drawing.Point(247, 155);
+            this.txtStreet1.Location = new System.Drawing.Point(83, 26);
             this.txtStreet1.Name = "txtStreet1";
             this.txtStreet1.Size = new System.Drawing.Size(136, 20);
             this.txtStreet1.TabIndex = 24;
@@ -115,7 +120,7 @@
             // lblDOB
             // 
             this.lblDOB.AutoSize = true;
-            this.lblDOB.Location = new System.Drawing.Point(172, 110);
+            this.lblDOB.Location = new System.Drawing.Point(-1, 69);
             this.lblDOB.Name = "lblDOB";
             this.lblDOB.Size = new System.Drawing.Size(69, 13);
             this.lblDOB.TabIndex = 23;
@@ -123,7 +128,7 @@
             // 
             // txtDOB
             // 
-            this.txtDOB.Location = new System.Drawing.Point(247, 103);
+            this.txtDOB.Location = new System.Drawing.Point(74, 62);
             this.txtDOB.Name = "txtDOB";
             this.txtDOB.Size = new System.Drawing.Size(136, 20);
             this.txtDOB.TabIndex = 22;
@@ -131,7 +136,7 @@
             // lblLName
             // 
             this.lblLName.AutoSize = true;
-            this.lblLName.Location = new System.Drawing.Point(180, 84);
+            this.lblLName.Location = new System.Drawing.Point(483, 26);
             this.lblLName.Name = "lblLName";
             this.lblLName.Size = new System.Drawing.Size(61, 13);
             this.lblLName.TabIndex = 21;
@@ -139,7 +144,7 @@
             // 
             // txtLName
             // 
-            this.txtLName.Location = new System.Drawing.Point(247, 77);
+            this.txtLName.Location = new System.Drawing.Point(550, 19);
             this.txtLName.Name = "txtLName";
             this.txtLName.Size = new System.Drawing.Size(136, 20);
             this.txtLName.TabIndex = 20;
@@ -147,7 +152,7 @@
             // lblMInit
             // 
             this.lblMInit.AutoSize = true;
-            this.lblMInit.Location = new System.Drawing.Point(176, 58);
+            this.lblMInit.Location = new System.Drawing.Point(254, 26);
             this.lblMInit.Name = "lblMInit";
             this.lblMInit.Size = new System.Drawing.Size(65, 13);
             this.lblMInit.TabIndex = 19;
@@ -155,7 +160,7 @@
             // 
             // txtMInit
             // 
-            this.txtMInit.Location = new System.Drawing.Point(247, 51);
+            this.txtMInit.Location = new System.Drawing.Point(325, 19);
             this.txtMInit.Name = "txtMInit";
             this.txtMInit.Size = new System.Drawing.Size(136, 20);
             this.txtMInit.TabIndex = 18;
@@ -163,7 +168,7 @@
             // lblFName
             // 
             this.lblFName.AutoSize = true;
-            this.lblFName.Location = new System.Drawing.Point(181, 32);
+            this.lblFName.Location = new System.Drawing.Point(8, 26);
             this.lblFName.Name = "lblFName";
             this.lblFName.Size = new System.Drawing.Size(60, 13);
             this.lblFName.TabIndex = 17;
@@ -171,7 +176,7 @@
             // 
             // txtFName
             // 
-            this.txtFName.Location = new System.Drawing.Point(247, 25);
+            this.txtFName.Location = new System.Drawing.Point(74, 19);
             this.txtFName.Name = "txtFName";
             this.txtFName.Size = new System.Drawing.Size(136, 20);
             this.txtFName.TabIndex = 16;
@@ -179,7 +184,7 @@
             // lblCellPhone
             // 
             this.lblCellPhone.AutoSize = true;
-            this.lblCellPhone.Location = new System.Drawing.Point(180, 345);
+            this.lblCellPhone.Location = new System.Drawing.Point(267, 135);
             this.lblCellPhone.Name = "lblCellPhone";
             this.lblCellPhone.Size = new System.Drawing.Size(61, 13);
             this.lblCellPhone.TabIndex = 41;
@@ -187,7 +192,7 @@
             // 
             // txtCellPhone
             // 
-            this.txtCellPhone.Location = new System.Drawing.Point(247, 338);
+            this.txtCellPhone.Location = new System.Drawing.Point(334, 128);
             this.txtCellPhone.Name = "txtCellPhone";
             this.txtCellPhone.Size = new System.Drawing.Size(136, 20);
             this.txtCellPhone.TabIndex = 40;
@@ -195,7 +200,7 @@
             // lblWorkPhone
             // 
             this.lblWorkPhone.AutoSize = true;
-            this.lblWorkPhone.Location = new System.Drawing.Point(171, 319);
+            this.lblWorkPhone.Location = new System.Drawing.Point(7, 135);
             this.lblWorkPhone.Name = "lblWorkPhone";
             this.lblWorkPhone.Size = new System.Drawing.Size(70, 13);
             this.lblWorkPhone.TabIndex = 39;
@@ -204,7 +209,7 @@
             // txtWorkPhone
             // 
             this.txtWorkPhone.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
-            this.txtWorkPhone.Location = new System.Drawing.Point(247, 312);
+            this.txtWorkPhone.Location = new System.Drawing.Point(83, 128);
             this.txtWorkPhone.Name = "txtWorkPhone";
             this.txtWorkPhone.Size = new System.Drawing.Size(136, 20);
             this.txtWorkPhone.TabIndex = 38;
@@ -212,7 +217,7 @@
             // lblHomePhone
             // 
             this.lblHomePhone.AutoSize = true;
-            this.lblHomePhone.Location = new System.Drawing.Point(169, 293);
+            this.lblHomePhone.Location = new System.Drawing.Point(481, 86);
             this.lblHomePhone.Name = "lblHomePhone";
             this.lblHomePhone.Size = new System.Drawing.Size(72, 13);
             this.lblHomePhone.TabIndex = 37;
@@ -220,7 +225,7 @@
             // 
             // txtHomePhone
             // 
-            this.txtHomePhone.Location = new System.Drawing.Point(247, 286);
+            this.txtHomePhone.Location = new System.Drawing.Point(559, 79);
             this.txtHomePhone.Name = "txtHomePhone";
             this.txtHomePhone.Size = new System.Drawing.Size(136, 20);
             this.txtHomePhone.TabIndex = 36;
@@ -228,7 +233,7 @@
             // lblZip
             // 
             this.lblZip.AutoSize = true;
-            this.lblZip.Location = new System.Drawing.Point(216, 267);
+            this.lblZip.Location = new System.Drawing.Point(303, 86);
             this.lblZip.Name = "lblZip";
             this.lblZip.Size = new System.Drawing.Size(25, 13);
             this.lblZip.TabIndex = 35;
@@ -236,7 +241,7 @@
             // 
             // txtZip
             // 
-            this.txtZip.Location = new System.Drawing.Point(247, 260);
+            this.txtZip.Location = new System.Drawing.Point(334, 79);
             this.txtZip.Name = "txtZip";
             this.txtZip.Size = new System.Drawing.Size(136, 20);
             this.txtZip.TabIndex = 34;
@@ -244,7 +249,7 @@
             // lblState
             // 
             this.lblState.AutoSize = true;
-            this.lblState.Location = new System.Drawing.Point(206, 240);
+            this.lblState.Location = new System.Drawing.Point(42, 82);
             this.lblState.Name = "lblState";
             this.lblState.Size = new System.Drawing.Size(35, 13);
             this.lblState.TabIndex = 33;
@@ -253,7 +258,7 @@
             // lblCity
             // 
             this.lblCity.AutoSize = true;
-            this.lblCity.Location = new System.Drawing.Point(214, 214);
+            this.lblCity.Location = new System.Drawing.Point(526, 37);
             this.lblCity.Name = "lblCity";
             this.lblCity.Size = new System.Drawing.Size(27, 13);
             this.lblCity.TabIndex = 31;
@@ -261,7 +266,7 @@
             // 
             // txtCity
             // 
-            this.txtCity.Location = new System.Drawing.Point(247, 207);
+            this.txtCity.Location = new System.Drawing.Point(559, 30);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(136, 20);
             this.txtCity.TabIndex = 30;
@@ -269,7 +274,7 @@
             // lblGender
             // 
             this.lblGender.AutoSize = true;
-            this.lblGender.Location = new System.Drawing.Point(196, 136);
+            this.lblGender.Location = new System.Drawing.Point(274, 69);
             this.lblGender.Name = "lblGender";
             this.lblGender.Size = new System.Drawing.Size(45, 13);
             this.lblGender.TabIndex = 45;
@@ -278,7 +283,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(206, 371);
+            this.lblEmail.Location = new System.Drawing.Point(518, 135);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(35, 13);
             this.lblEmail.TabIndex = 43;
@@ -286,7 +291,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(247, 364);
+            this.txtEmail.Location = new System.Drawing.Point(559, 128);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(136, 20);
             this.txtEmail.TabIndex = 42;
@@ -297,7 +302,7 @@
             this.cboGender.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.cboGender.Location = new System.Drawing.Point(247, 128);
+            this.cboGender.Location = new System.Drawing.Point(325, 61);
             this.cboGender.Name = "cboGender";
             this.cboGender.Size = new System.Drawing.Size(136, 21);
             this.cboGender.TabIndex = 46;
@@ -305,51 +310,84 @@
             // cboState
             // 
             this.cboState.FormattingEnabled = true;
-            this.cboState.Location = new System.Drawing.Point(247, 233);
+            this.cboState.Location = new System.Drawing.Point(83, 75);
             this.cboState.Name = "cboState";
             this.cboState.Size = new System.Drawing.Size(136, 21);
             this.cboState.TabIndex = 47;
+            // 
+            // lblAddPatient
+            // 
+            this.lblAddPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddPatient.Location = new System.Drawing.Point(337, 34);
+            this.lblAddPatient.Name = "lblAddPatient";
+            this.lblAddPatient.Size = new System.Drawing.Size(270, 82);
+            this.lblAddPatient.TabIndex = 48;
+            this.lblAddPatient.Text = "Add Patient";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtFName);
+            this.groupBox1.Controls.Add(this.lblFName);
+            this.groupBox1.Controls.Add(this.txtMInit);
+            this.groupBox1.Controls.Add(this.cboGender);
+            this.groupBox1.Controls.Add(this.lblMInit);
+            this.groupBox1.Controls.Add(this.lblGender);
+            this.groupBox1.Controls.Add(this.txtLName);
+            this.groupBox1.Controls.Add(this.lblLName);
+            this.groupBox1.Controls.Add(this.txtDOB);
+            this.groupBox1.Controls.Add(this.lblDOB);
+            this.groupBox1.Location = new System.Drawing.Point(7, 93);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(721, 109);
+            this.groupBox1.TabIndex = 49;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "General Info";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lblStreet1);
+            this.groupBox2.Controls.Add(this.txtStreet1);
+            this.groupBox2.Controls.Add(this.txtStreet2);
+            this.groupBox2.Controls.Add(this.cboState);
+            this.groupBox2.Controls.Add(this.lblStreet2);
+            this.groupBox2.Controls.Add(this.lblEmail);
+            this.groupBox2.Controls.Add(this.txtCity);
+            this.groupBox2.Controls.Add(this.txtEmail);
+            this.groupBox2.Controls.Add(this.lblCity);
+            this.groupBox2.Controls.Add(this.lblCellPhone);
+            this.groupBox2.Controls.Add(this.lblState);
+            this.groupBox2.Controls.Add(this.txtCellPhone);
+            this.groupBox2.Controls.Add(this.txtZip);
+            this.groupBox2.Controls.Add(this.lblWorkPhone);
+            this.groupBox2.Controls.Add(this.lblZip);
+            this.groupBox2.Controls.Add(this.txtWorkPhone);
+            this.groupBox2.Controls.Add(this.txtHomePhone);
+            this.groupBox2.Controls.Add(this.lblHomePhone);
+            this.groupBox2.Location = new System.Drawing.Point(7, 231);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(721, 190);
+            this.groupBox2.TabIndex = 50;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Address and Contact Information";
             // 
             // frmAddPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 571);
-            this.Controls.Add(this.cboState);
-            this.Controls.Add(this.cboGender);
-            this.Controls.Add(this.lblGender);
-            this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.lblCellPhone);
-            this.Controls.Add(this.txtCellPhone);
-            this.Controls.Add(this.lblWorkPhone);
-            this.Controls.Add(this.txtWorkPhone);
-            this.Controls.Add(this.lblHomePhone);
-            this.Controls.Add(this.txtHomePhone);
-            this.Controls.Add(this.lblZip);
-            this.Controls.Add(this.txtZip);
-            this.Controls.Add(this.lblState);
-            this.Controls.Add(this.lblCity);
-            this.Controls.Add(this.txtCity);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.lblAddPatient);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.lblStreet2);
-            this.Controls.Add(this.txtStreet2);
-            this.Controls.Add(this.lblStreet1);
-            this.Controls.Add(this.txtStreet1);
-            this.Controls.Add(this.lblDOB);
-            this.Controls.Add(this.txtDOB);
-            this.Controls.Add(this.lblLName);
-            this.Controls.Add(this.txtLName);
-            this.Controls.Add(this.lblMInit);
-            this.Controls.Add(this.txtMInit);
-            this.Controls.Add(this.lblFName);
-            this.Controls.Add(this.txtFName);
             this.Name = "frmAddPatient";
             this.Text = "frmAddPatient";
             this.Load += new System.EventHandler(this.frmAddPatient_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -385,5 +423,8 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.ComboBox cboGender;
         private System.Windows.Forms.ComboBox cboState;
+        private System.Windows.Forms.Label lblAddPatient;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
