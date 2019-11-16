@@ -77,7 +77,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(614, 443);
+            this.btnAdd.Location = new System.Drawing.Point(614, 449);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(90, 30);
             this.btnAdd.TabIndex = 28;
@@ -152,7 +152,7 @@
             // lblMInit
             // 
             this.lblMInit.AutoSize = true;
-            this.lblMInit.Location = new System.Drawing.Point(254, 26);
+            this.lblMInit.Location = new System.Drawing.Point(254, 19);
             this.lblMInit.Name = "lblMInit";
             this.lblMInit.Size = new System.Drawing.Size(65, 13);
             this.lblMInit.TabIndex = 19;
@@ -274,7 +274,7 @@
             // lblGender
             // 
             this.lblGender.AutoSize = true;
-            this.lblGender.Location = new System.Drawing.Point(274, 69);
+            this.lblGender.Location = new System.Drawing.Point(274, 64);
             this.lblGender.Name = "lblGender";
             this.lblGender.Size = new System.Drawing.Size(45, 13);
             this.lblGender.TabIndex = 45;
