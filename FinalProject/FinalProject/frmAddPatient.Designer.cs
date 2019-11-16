@@ -62,7 +62,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(410, 51);
+            this.btnExit.Location = new System.Drawing.Point(33, 521);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 29;
@@ -72,7 +72,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(410, 22);
+            this.btnAdd.Location = new System.Drawing.Point(33, 492);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 28;
@@ -115,7 +115,7 @@
             // lblDOB
             // 
             this.lblDOB.AutoSize = true;
-            this.lblDOB.Location = new System.Drawing.Point(172, 110);
+            this.lblDOB.Location = new System.Drawing.Point(0, 108);
             this.lblDOB.Name = "lblDOB";
             this.lblDOB.Size = new System.Drawing.Size(69, 13);
             this.lblDOB.TabIndex = 23;
@@ -123,7 +123,7 @@
             // 
             // txtDOB
             // 
-            this.txtDOB.Location = new System.Drawing.Point(247, 103);
+            this.txtDOB.Location = new System.Drawing.Point(75, 101);
             this.txtDOB.Name = "txtDOB";
             this.txtDOB.Size = new System.Drawing.Size(136, 20);
             this.txtDOB.TabIndex = 22;
@@ -131,7 +131,7 @@
             // lblLName
             // 
             this.lblLName.AutoSize = true;
-            this.lblLName.Location = new System.Drawing.Point(180, 84);
+            this.lblLName.Location = new System.Drawing.Point(548, 65);
             this.lblLName.Name = "lblLName";
             this.lblLName.Size = new System.Drawing.Size(61, 13);
             this.lblLName.TabIndex = 21;
@@ -139,7 +139,7 @@
             // 
             // txtLName
             // 
-            this.txtLName.Location = new System.Drawing.Point(247, 77);
+            this.txtLName.Location = new System.Drawing.Point(615, 58);
             this.txtLName.Name = "txtLName";
             this.txtLName.Size = new System.Drawing.Size(136, 20);
             this.txtLName.TabIndex = 20;
@@ -147,7 +147,7 @@
             // lblMInit
             // 
             this.lblMInit.AutoSize = true;
-            this.lblMInit.Location = new System.Drawing.Point(176, 58);
+            this.lblMInit.Location = new System.Drawing.Point(255, 65);
             this.lblMInit.Name = "lblMInit";
             this.lblMInit.Size = new System.Drawing.Size(65, 13);
             this.lblMInit.TabIndex = 19;
@@ -155,7 +155,7 @@
             // 
             // txtMInit
             // 
-            this.txtMInit.Location = new System.Drawing.Point(247, 51);
+            this.txtMInit.Location = new System.Drawing.Point(326, 58);
             this.txtMInit.Name = "txtMInit";
             this.txtMInit.Size = new System.Drawing.Size(136, 20);
             this.txtMInit.TabIndex = 18;
@@ -163,7 +163,7 @@
             // lblFName
             // 
             this.lblFName.AutoSize = true;
-            this.lblFName.Location = new System.Drawing.Point(181, 32);
+            this.lblFName.Location = new System.Drawing.Point(9, 65);
             this.lblFName.Name = "lblFName";
             this.lblFName.Size = new System.Drawing.Size(60, 13);
             this.lblFName.TabIndex = 17;
@@ -171,7 +171,7 @@
             // 
             // txtFName
             // 
-            this.txtFName.Location = new System.Drawing.Point(247, 25);
+            this.txtFName.Location = new System.Drawing.Point(75, 58);
             this.txtFName.Name = "txtFName";
             this.txtFName.Size = new System.Drawing.Size(136, 20);
             this.txtFName.TabIndex = 16;
@@ -269,7 +269,7 @@
             // lblGender
             // 
             this.lblGender.AutoSize = true;
-            this.lblGender.Location = new System.Drawing.Point(196, 136);
+            this.lblGender.Location = new System.Drawing.Point(275, 108);
             this.lblGender.Name = "lblGender";
             this.lblGender.Size = new System.Drawing.Size(45, 13);
             this.lblGender.TabIndex = 45;
@@ -297,7 +297,7 @@
             this.cboGender.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.cboGender.Location = new System.Drawing.Point(247, 128);
+            this.cboGender.Location = new System.Drawing.Point(326, 100);
             this.cboGender.Name = "cboGender";
             this.cboGender.Size = new System.Drawing.Size(136, 21);
             this.cboGender.TabIndex = 46;
