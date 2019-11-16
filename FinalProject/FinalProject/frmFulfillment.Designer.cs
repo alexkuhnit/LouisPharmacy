@@ -28,45 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtPrescriptionID = new System.Windows.Forms.TextBox();
+            this.dtpTime = new System.Windows.Forms.DateTimePicker();
             this.dgvRefills = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblPrescriptionID = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRefills)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtPrescriptionID
             // 
-            this.textBox1.Location = new System.Drawing.Point(202, 76);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtPrescriptionID.Location = new System.Drawing.Point(198, 104);
+            this.txtPrescriptionID.Name = "txtPrescriptionID";
+            this.txtPrescriptionID.Size = new System.Drawing.Size(100, 20);
+            this.txtPrescriptionID.TabIndex = 2;
             // 
-            // textBox2
+            // dtpTime
             // 
-            this.textBox2.Location = new System.Drawing.Point(202, 102);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(202, 128);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 2;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(202, 154);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 3;
+            this.dtpTime.Location = new System.Drawing.Point(198, 130);
+            this.dtpTime.Name = "dtpTime";
+            this.dtpTime.Size = new System.Drawing.Size(200, 20);
+            this.dtpTime.TabIndex = 3;
             // 
             // dgvRefills
             // 
@@ -76,58 +58,37 @@
             this.dgvRefills.Size = new System.Drawing.Size(514, 150);
             this.dgvRefills.TabIndex = 4;
             // 
-            // label1
+            // lblPrescriptionID
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(161, 82);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "label1";
+            this.lblPrescriptionID.AutoSize = true;
+            this.lblPrescriptionID.Location = new System.Drawing.Point(116, 111);
+            this.lblPrescriptionID.Name = "lblPrescriptionID";
+            this.lblPrescriptionID.Size = new System.Drawing.Size(79, 13);
+            this.lblPrescriptionID.TabIndex = 7;
+            this.lblPrescriptionID.Text = "Prescription ID:";
             // 
-            // label2
+            // lblTime
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(161, 109);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "label2";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(161, 135);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "label3";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(161, 161);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "label4";
+            this.lblTime.AutoSize = true;
+            this.lblTime.Location = new System.Drawing.Point(132, 137);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(60, 13);
+            this.lblTime.TabIndex = 8;
+            this.lblTime.Text = "Time Filled:";
             // 
             // frmFulfillment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTime);
+            this.Controls.Add(this.lblPrescriptionID);
             this.Controls.Add(this.dgvRefills);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dtpTime);
+            this.Controls.Add(this.txtPrescriptionID);
             this.Name = "frmFulfillment";
             this.Text = "frmFulfillment";
+            this.Load += new System.EventHandler(this.frmFulfillment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRefills)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -135,15 +96,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox txtPrescriptionID;
+        private System.Windows.Forms.DateTimePicker dtpTime;
         private System.Windows.Forms.DataGridView dgvRefills;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblPrescriptionID;
+        private System.Windows.Forms.Label lblTime;
     }
 }
