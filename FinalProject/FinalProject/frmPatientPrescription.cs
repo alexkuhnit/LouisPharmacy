@@ -114,7 +114,7 @@ namespace FinalProject
         private void dgvPrescriptions_DoubleClick(object sender, EventArgs e)
         {
             string prescriptionID;
-            frmPatientPrescription eForm = new frmPatientPrescription();
+            frmFulfillment eForm = new frmFulfillment();
             eForm.MdiParent = this.MdiParent;
 
             DataGridViewRow row = dgvPrescriptions.SelectedRows[0];

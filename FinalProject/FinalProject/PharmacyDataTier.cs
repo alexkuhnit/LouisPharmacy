@@ -327,5 +327,79 @@ namespace FinalProject
                 myConn.Close();
             }
         }
+        public DataSet GetPrescriptionPID(string prescriptionID)
+        {
+            try
+            {
+                //open connection
+                myConn.Open();
+                //Clear command argument
+                cmdString.Parameters.Clear();
+                //command
+                cmdString.Connection = myConn;
+                cmdString.CommandText = connString;
+                cmdString.CommandType = CommandType.StoredProcedure;
+                cmdString.CommandTimeout = 1500;
+                cmdString.CommandText = "SearchPrescriptionPrescriptionID";
+
+                //define input parameters
+                cmdString.Parameters.Add("@prescriptionID", SqlDbType.VarChar, 25).Value = prescriptionID;
+
+                //adapter and dataset
+                SqlDataAdapter aAdapter = new SqlDataAdapter();
+                aAdapter.SelectCommand = cmdString;
+                DataSet aDataSet = new DataSet();
+
+                //filladapter
+                aAdapter.Fill(aDataSet);
+                //return data set
+                return aDataSet;
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+            finally
+            {
+                myConn.Close();
+            }
+        }
+        public DataSet GetRefills(string prescriptionID)
+        {
+            try
+            {
+                //open connection
+                myConn.Open();
+                //Clear command argument
+                cmdString.Parameters.Clear();
+                //command
+                cmdString.Connection = myConn;
+                cmdString.CommandText = connString;
+                cmdString.CommandType = CommandType.StoredProcedure;
+                cmdString.CommandTimeout = 1500;
+                cmdString.CommandText = "searchRefills";
+
+                //define input parameters
+                cmdString.Parameters.Add("@prescriptionID", SqlDbType.VarChar, 25).Value = prescriptionID;
+
+                //adapter and dataset
+                SqlDataAdapter aAdapter = new SqlDataAdapter();
+                aAdapter.SelectCommand = cmdString;
+                DataSet aDataSet = new DataSet();
+
+                //filladapter
+                aAdapter.Fill(aDataSet);
+                //return data set
+                return aDataSet;
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+            finally
+            {
+                myConn.Close();
+            }
+        }
     }
 }

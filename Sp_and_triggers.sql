@@ -307,6 +307,17 @@ AS
 		where patientID = @patientID
 	end
 go
+
+create proc searchRefills(
+    @prescriptionID varchar(20)
+)
+AS
+    BEGIN
+        SELECT *
+            from fulfillment
+            where (cast(prescriptionID as varchar)like '%' + upper(@prescriptionID) + '%' or cast(prescriptionID as varchar) = '')
+    END
+GO
 /*
 	SET NOCOUNT ON;
 		BEGIN TRANSACTION
