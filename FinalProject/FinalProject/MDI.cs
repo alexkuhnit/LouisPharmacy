@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FinalProject
@@ -51,6 +44,15 @@ namespace FinalProject
             dForm.StartPosition = FormStartPosition.CenterScreen;
             dForm.Show();
             dForm.Focus();
+        }
+
+        private void physicianToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            frmSearchPhysician eForm = new frmSearchPhysician();
+            eForm.MdiParent = this;
+            eForm.StartPosition = FormStartPosition.CenterScreen;
+            eForm.Show();
+            eForm.Focus();
         }
     }
 }

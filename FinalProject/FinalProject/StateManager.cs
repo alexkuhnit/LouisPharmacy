@@ -1,21 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using System.Diagnostics;
-using System.Globalization;
-using System.IO;
-
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Security;
-using Microsoft.VisualBasic;
-using System.Windows;
 using System.Xml;
-using System.Web;
 //using System.Web.Caching;
 
 namespace FinalProject

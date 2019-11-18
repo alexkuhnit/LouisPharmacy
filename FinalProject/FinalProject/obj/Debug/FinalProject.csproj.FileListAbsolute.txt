@@ -2,7 +2,6 @@ C:\Users\aethorix\Source\Repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProjec
 C:\Users\aethorix\Source\Repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\bin\Debug\FinalProject.exe
 C:\Users\aethorix\Source\Repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\bin\Debug\FinalProject.pdb
 C:\Users\aethorix\Source\Repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\obj\Debug\FinalProject.csprojAssemblyReference.cache
-C:\Users\aethorix\Source\Repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\obj\Debug\FinalProject.frmLogin.resources
 C:\Users\aethorix\Source\Repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\obj\Debug\FinalProject.MDI.resources
 C:\Users\aethorix\Source\Repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\obj\Debug\FinalProject.Properties.Resources.resources
 C:\Users\aethorix\Source\Repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\obj\Debug\FinalProject.csproj.GenerateResource.cache
@@ -14,3 +13,6 @@ C:\Users\aethorix\Source\Repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProjec
 C:\Users\aethorix\source\repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\obj\Debug\FinalProject.frmSearchPrescriptions.resources
 C:\Users\aethorix\source\repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\obj\Debug\FinalProject.frmPatientPrescription.resources
 C:\Users\aethorix\source\repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\obj\Debug\FinalProject.frmFulfillment.resources
+C:\Users\aethorix\Source\Repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\obj\Debug\FinalProject.frmUpdateRefill.resources
+C:\Users\aethorix\Source\Repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\obj\Debug\FinalProject.frmSearchPhysician.resources
+C:\Users\aethorix\Source\Repos\alexkuhnit\LouisPharmacy\FinalProject\FinalProject\obj\Debug\FinalProject.frmUpdatePhysician.resources

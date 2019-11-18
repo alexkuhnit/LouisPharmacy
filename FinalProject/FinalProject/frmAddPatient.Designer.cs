@@ -36,7 +36,6 @@
             this.lblStreet1 = new System.Windows.Forms.Label();
             this.txtStreet1 = new System.Windows.Forms.TextBox();
             this.lblDOB = new System.Windows.Forms.Label();
-            this.txtDOB = new System.Windows.Forms.TextBox();
             this.lblLName = new System.Windows.Forms.Label();
             this.txtLName = new System.Windows.Forms.TextBox();
             this.lblMInit = new System.Windows.Forms.Label();
@@ -61,10 +60,13 @@
             this.cboState = new System.Windows.Forms.ComboBox();
             this.lblAddPatient = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpDOB = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.epv = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.epv)).BeginInit();
             this.SuspendLayout();
             // 
             // btnExit
@@ -80,6 +82,7 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.Enabled = false;
             this.btnAdd.Location = new System.Drawing.Point(614, 449);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(90, 30);
@@ -97,6 +100,7 @@
             this.lblStreet2.Size = new System.Drawing.Size(44, 13);
             this.lblStreet2.TabIndex = 27;
             this.lblStreet2.Text = "Street2:";
+            this.toolTip1.SetToolTip(this.lblStreet2, "Enter Patients Address");
             // 
             // txtStreet2
             // 
@@ -114,6 +118,7 @@
             this.lblStreet1.Size = new System.Drawing.Size(44, 13);
             this.lblStreet1.TabIndex = 25;
             this.lblStreet1.Text = "Street1:";
+            this.toolTip1.SetToolTip(this.lblStreet1, "Enter Patients Address");
             // 
             // txtStreet1
             // 
@@ -122,6 +127,7 @@
             this.txtStreet1.Size = new System.Drawing.Size(136, 20);
             this.txtStreet1.TabIndex = 6;
             this.toolTip1.SetToolTip(this.txtStreet1, "Enter Patients Address");
+            this.txtStreet1.TextChanged += new System.EventHandler(this.txtStreet1_TextChanged);
             // 
             // lblDOB
             // 
@@ -132,14 +138,6 @@
             this.lblDOB.TabIndex = 23;
             this.lblDOB.Text = "Date of Birth:";
             // 
-            // txtDOB
-            // 
-            this.txtDOB.Location = new System.Drawing.Point(74, 62);
-            this.txtDOB.Name = "txtDOB";
-            this.txtDOB.Size = new System.Drawing.Size(136, 20);
-            this.txtDOB.TabIndex = 4;
-            this.toolTip1.SetToolTip(this.txtDOB, "Enter Patients DOB");
-            // 
             // lblLName
             // 
             this.lblLName.AutoSize = true;
@@ -148,6 +146,7 @@
             this.lblLName.Size = new System.Drawing.Size(61, 13);
             this.lblLName.TabIndex = 21;
             this.lblLName.Text = "Last Name:";
+            this.toolTip1.SetToolTip(this.lblLName, "Enter Patients Last Name");
             // 
             // txtLName
             // 
@@ -156,6 +155,7 @@
             this.txtLName.Size = new System.Drawing.Size(136, 20);
             this.txtLName.TabIndex = 3;
             this.toolTip1.SetToolTip(this.txtLName, "Enter Patients Last Name");
+            this.txtLName.TextChanged += new System.EventHandler(this.txtLName_TextChanged);
             // 
             // lblMInit
             // 
@@ -165,6 +165,7 @@
             this.lblMInit.Size = new System.Drawing.Size(65, 13);
             this.lblMInit.TabIndex = 19;
             this.lblMInit.Text = "Middle Initial";
+            this.toolTip1.SetToolTip(this.lblMInit, "Enter Patients Middle Initial");
             // 
             // txtMInit
             // 
@@ -173,6 +174,8 @@
             this.txtMInit.Size = new System.Drawing.Size(136, 20);
             this.txtMInit.TabIndex = 2;
             this.toolTip1.SetToolTip(this.txtMInit, "Enter Patients Middle Initial");
+            this.txtMInit.TextChanged += new System.EventHandler(this.txtMInit_TextChanged);
+            this.txtMInit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMInit_KeyPress);
             // 
             // lblFName
             // 
@@ -182,6 +185,7 @@
             this.lblFName.Size = new System.Drawing.Size(60, 13);
             this.lblFName.TabIndex = 17;
             this.lblFName.Text = "First Name:";
+            this.toolTip1.SetToolTip(this.lblFName, "Enter Patients First Name");
             // 
             // txtFName
             // 
@@ -190,6 +194,7 @@
             this.txtFName.Size = new System.Drawing.Size(136, 20);
             this.txtFName.TabIndex = 1;
             this.toolTip1.SetToolTip(this.txtFName, "Enter Patients First Name");
+            this.txtFName.TextChanged += new System.EventHandler(this.txtFName_TextChanged);
             // 
             // lblCellPhone
             // 
@@ -199,6 +204,7 @@
             this.lblCellPhone.Size = new System.Drawing.Size(61, 13);
             this.lblCellPhone.TabIndex = 41;
             this.lblCellPhone.Text = "Cell Phone:";
+            this.toolTip1.SetToolTip(this.lblCellPhone, "Enter Patients Cell Phone Number");
             // 
             // txtCellPhone
             // 
@@ -207,6 +213,8 @@
             this.txtCellPhone.Size = new System.Drawing.Size(136, 20);
             this.txtCellPhone.TabIndex = 13;
             this.toolTip1.SetToolTip(this.txtCellPhone, "Enter Patients Cell Phone Number");
+            this.txtCellPhone.TextChanged += new System.EventHandler(this.txtCellPhone_TextChanged);
+            this.txtCellPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCellPhone_KeyPress);
             // 
             // lblWorkPhone
             // 
@@ -216,6 +224,7 @@
             this.lblWorkPhone.Size = new System.Drawing.Size(70, 13);
             this.lblWorkPhone.TabIndex = 39;
             this.lblWorkPhone.Text = "Work Phone:";
+            this.toolTip1.SetToolTip(this.lblWorkPhone, "Enter Patients Work Phone Number");
             // 
             // txtWorkPhone
             // 
@@ -225,6 +234,8 @@
             this.txtWorkPhone.Size = new System.Drawing.Size(136, 20);
             this.txtWorkPhone.TabIndex = 12;
             this.toolTip1.SetToolTip(this.txtWorkPhone, "Enter Patients Work Phone Number");
+            this.txtWorkPhone.TextChanged += new System.EventHandler(this.txtWorkPhone_TextChanged);
+            this.txtWorkPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWorkPhone_KeyPress);
             // 
             // lblHomePhone
             // 
@@ -234,6 +245,7 @@
             this.lblHomePhone.Size = new System.Drawing.Size(72, 13);
             this.lblHomePhone.TabIndex = 37;
             this.lblHomePhone.Text = "Home Phone:";
+            this.toolTip1.SetToolTip(this.lblHomePhone, "Enter Patients Home Phone Number");
             // 
             // txtHomePhone
             // 
@@ -242,6 +254,8 @@
             this.txtHomePhone.Size = new System.Drawing.Size(136, 20);
             this.txtHomePhone.TabIndex = 11;
             this.toolTip1.SetToolTip(this.txtHomePhone, "Enter Patients Home Phone Number");
+            this.txtHomePhone.TextChanged += new System.EventHandler(this.txtHomePhone_TextChanged);
+            this.txtHomePhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHomePhone_KeyPress);
             // 
             // lblZip
             // 
@@ -251,6 +265,7 @@
             this.lblZip.Size = new System.Drawing.Size(25, 13);
             this.lblZip.TabIndex = 35;
             this.lblZip.Text = "Zip:";
+            this.toolTip1.SetToolTip(this.lblZip, "Enter Patients Zip Code");
             // 
             // txtZip
             // 
@@ -259,6 +274,8 @@
             this.txtZip.Size = new System.Drawing.Size(136, 20);
             this.txtZip.TabIndex = 10;
             this.toolTip1.SetToolTip(this.txtZip, "Enter Patients Zip Code");
+            this.txtZip.TextChanged += new System.EventHandler(this.txtZip_TextChanged);
+            this.txtZip.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtZip_KeyPress);
             // 
             // lblState
             // 
@@ -268,6 +285,7 @@
             this.lblState.Size = new System.Drawing.Size(35, 13);
             this.lblState.TabIndex = 33;
             this.lblState.Text = "State:";
+            this.toolTip1.SetToolTip(this.lblState, "Enter Patients State");
             // 
             // lblCity
             // 
@@ -277,6 +295,7 @@
             this.lblCity.Size = new System.Drawing.Size(27, 13);
             this.lblCity.TabIndex = 31;
             this.lblCity.Text = "City:";
+            this.toolTip1.SetToolTip(this.lblCity, "Enter Patients City");
             // 
             // txtCity
             // 
@@ -285,15 +304,17 @@
             this.txtCity.Size = new System.Drawing.Size(136, 20);
             this.txtCity.TabIndex = 8;
             this.toolTip1.SetToolTip(this.txtCity, "Enter Patients City");
+            this.txtCity.TextChanged += new System.EventHandler(this.txtCity_TextChanged);
             // 
             // lblGender
             // 
             this.lblGender.AutoSize = true;
-            this.lblGender.Location = new System.Drawing.Point(274, 69);
+            this.lblGender.Location = new System.Drawing.Point(322, 69);
             this.lblGender.Name = "lblGender";
             this.lblGender.Size = new System.Drawing.Size(45, 13);
             this.lblGender.TabIndex = 45;
             this.lblGender.Text = "Gender:";
+            this.toolTip1.SetToolTip(this.lblGender, "Enter Patients Gender");
             // 
             // lblEmail
             // 
@@ -303,6 +324,7 @@
             this.lblEmail.Size = new System.Drawing.Size(35, 13);
             this.lblEmail.TabIndex = 43;
             this.lblEmail.Text = "Email:";
+            this.toolTip1.SetToolTip(this.lblEmail, "Enter Patients Email");
             // 
             // txtEmail
             // 
@@ -311,28 +333,34 @@
             this.txtEmail.Size = new System.Drawing.Size(136, 20);
             this.txtEmail.TabIndex = 14;
             this.toolTip1.SetToolTip(this.txtEmail, "Enter Patients Email");
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // cboGender
             // 
+            this.cboGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboGender.FormattingEnabled = true;
             this.cboGender.ItemHeight = 13;
             this.cboGender.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.cboGender.Location = new System.Drawing.Point(325, 61);
+            this.cboGender.Location = new System.Drawing.Point(373, 61);
             this.cboGender.Name = "cboGender";
             this.cboGender.Size = new System.Drawing.Size(136, 21);
-            this.cboGender.TabIndex = 46;
+            this.cboGender.TabIndex = 5;
             this.toolTip1.SetToolTip(this.cboGender, "Enter Patients Gender");
+            this.cboGender.SelectedIndexChanged += new System.EventHandler(this.cboGender_SelectedIndexChanged);
+            this.cboGender.TextChanged += new System.EventHandler(this.cboGender_TextChanged);
             // 
             // cboState
             // 
+            this.cboState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboState.FormattingEnabled = true;
             this.cboState.Location = new System.Drawing.Point(83, 75);
             this.cboState.Name = "cboState";
             this.cboState.Size = new System.Drawing.Size(136, 21);
             this.cboState.TabIndex = 9;
             this.toolTip1.SetToolTip(this.cboState, "Enter Patients State");
+            this.cboState.TextUpdate += new System.EventHandler(this.cboState_TextUpdate);
             // 
             // lblAddPatient
             // 
@@ -345,6 +373,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dtpDOB);
             this.groupBox1.Controls.Add(this.txtFName);
             this.groupBox1.Controls.Add(this.lblFName);
             this.groupBox1.Controls.Add(this.txtMInit);
@@ -353,7 +382,6 @@
             this.groupBox1.Controls.Add(this.lblGender);
             this.groupBox1.Controls.Add(this.txtLName);
             this.groupBox1.Controls.Add(this.lblLName);
-            this.groupBox1.Controls.Add(this.txtDOB);
             this.groupBox1.Controls.Add(this.lblDOB);
             this.groupBox1.Location = new System.Drawing.Point(7, 93);
             this.groupBox1.Name = "groupBox1";
@@ -361,6 +389,13 @@
             this.groupBox1.TabIndex = 49;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "General Info";
+            // 
+            // dtpDOB
+            // 
+            this.dtpDOB.Location = new System.Drawing.Point(74, 62);
+            this.dtpDOB.Name = "dtpDOB";
+            this.dtpDOB.Size = new System.Drawing.Size(200, 20);
+            this.dtpDOB.TabIndex = 4;
             // 
             // groupBox2
             // 
@@ -389,23 +424,28 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Address and Contact Information";
             // 
+            // epv
+            // 
+            this.epv.ContainerControl = this;
+            // 
             // frmAddPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 571);
+            this.ClientSize = new System.Drawing.Size(738, 571);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblAddPatient);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnAdd);
             this.Name = "frmAddPatient";
-            this.Text = "frmAddPatient";
+            this.Text = "Add Patient";
             this.Load += new System.EventHandler(this.frmAddPatient_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.epv)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -419,7 +459,6 @@
         private System.Windows.Forms.Label lblStreet1;
         private System.Windows.Forms.TextBox txtStreet1;
         private System.Windows.Forms.Label lblDOB;
-        private System.Windows.Forms.TextBox txtDOB;
         private System.Windows.Forms.Label lblLName;
         private System.Windows.Forms.TextBox txtLName;
         private System.Windows.Forms.Label lblMInit;
@@ -446,5 +485,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.DateTimePicker dtpDOB;
+        private System.Windows.Forms.ErrorProvider epv;
     }
 }

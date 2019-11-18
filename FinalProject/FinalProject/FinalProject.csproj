@@ -36,6 +36,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,6 +59,24 @@
     </Compile>
     <Compile Include="frmPatientPrescription.Designer.cs">
       <DependentUpon>frmPatientPrescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSearchPhysician.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSearchPhysician.Designer.cs">
+      <DependentUpon>frmSearchPhysician.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUpdatePhysician.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpdatePhysician.Designer.cs">
+      <DependentUpon>frmUpdatePhysician.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUpdateRefill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpdateRefill.Designer.cs">
+      <DependentUpon>frmUpdateRefill.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSearchPrescriptions.cs">
       <SubType>Form</SubType>
@@ -83,12 +102,6 @@
     <Compile Include="frmAddPrescription.Designer.cs">
       <DependentUpon>frmAddPrescription.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
-    </Compile>
     <Compile Include="MDI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +119,15 @@
     <EmbeddedResource Include="frmPatientPrescription.resx">
       <DependentUpon>frmPatientPrescription.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSearchPhysician.resx">
+      <DependentUpon>frmSearchPhysician.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpdatePhysician.resx">
+      <DependentUpon>frmUpdatePhysician.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpdateRefill.resx">
+      <DependentUpon>frmUpdateRefill.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSearchPrescriptions.resx">
       <DependentUpon>frmSearchPrescriptions.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,9 +139,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddPrescription.resx">
       <DependentUpon>frmAddPrescription.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI.resx">
       <DependentUpon>MDI.cs</DependentUpon>

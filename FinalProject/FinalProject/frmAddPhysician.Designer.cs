@@ -46,7 +46,9 @@
             this.lblAddPhysician = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.epv = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.epv)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFName
@@ -57,6 +59,7 @@
             this.lblFName.Size = new System.Drawing.Size(60, 13);
             this.lblFName.TabIndex = 3;
             this.lblFName.Text = "First Name:";
+            this.toolTip1.SetToolTip(this.lblFName, "Enter Physicians First Name");
             // 
             // txtFName
             // 
@@ -65,6 +68,7 @@
             this.txtFName.Size = new System.Drawing.Size(100, 20);
             this.txtFName.TabIndex = 1;
             this.toolTip1.SetToolTip(this.txtFName, "Enter Physicians First Name");
+            this.txtFName.TextChanged += new System.EventHandler(this.txtFName_TextChanged);
             // 
             // lblMInit
             // 
@@ -74,6 +78,7 @@
             this.lblMInit.Size = new System.Drawing.Size(65, 13);
             this.lblMInit.TabIndex = 5;
             this.lblMInit.Text = "Middle Initial";
+            this.toolTip1.SetToolTip(this.lblMInit, "Enter Physicians  Middle Initial");
             // 
             // txtMInit
             // 
@@ -82,6 +87,8 @@
             this.txtMInit.Size = new System.Drawing.Size(100, 20);
             this.txtMInit.TabIndex = 2;
             this.toolTip1.SetToolTip(this.txtMInit, "Enter Physicians  Middle Initial");
+            this.txtMInit.TextChanged += new System.EventHandler(this.txtMInit_TextChanged);
+            this.txtMInit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMInit_KeyPress);
             // 
             // lblLName
             // 
@@ -91,6 +98,7 @@
             this.lblLName.Size = new System.Drawing.Size(61, 13);
             this.lblLName.TabIndex = 7;
             this.lblLName.Text = "Last Name:";
+            this.toolTip1.SetToolTip(this.lblLName, "Enter Physicians  Last Name");
             // 
             // txtLName
             // 
@@ -99,6 +107,7 @@
             this.txtLName.Size = new System.Drawing.Size(100, 20);
             this.txtLName.TabIndex = 3;
             this.toolTip1.SetToolTip(this.txtLName, "Enter Physicians  Last Name");
+            this.txtLName.TextChanged += new System.EventHandler(this.txtLName_TextChanged);
             // 
             // lblOffice
             // 
@@ -108,14 +117,16 @@
             this.lblOffice.Size = new System.Drawing.Size(38, 13);
             this.lblOffice.TabIndex = 9;
             this.lblOffice.Text = "Office:";
+            this.toolTip1.SetToolTip(this.lblOffice, "Enter Physicians Office ");
             // 
             // txtOffice
             // 
             this.txtOffice.Location = new System.Drawing.Point(71, 91);
             this.txtOffice.Name = "txtOffice";
-            this.txtOffice.Size = new System.Drawing.Size(100, 20);
+            this.txtOffice.Size = new System.Drawing.Size(167, 20);
             this.txtOffice.TabIndex = 4;
             this.toolTip1.SetToolTip(this.txtOffice, "Enter Physicians Office ");
+            this.txtOffice.TextChanged += new System.EventHandler(this.txtOffice_TextChanged);
             // 
             // lblPhoneNum
             // 
@@ -125,6 +136,7 @@
             this.lblPhoneNum.Size = new System.Drawing.Size(81, 13);
             this.lblPhoneNum.TabIndex = 11;
             this.lblPhoneNum.Text = "Phone Number:";
+            this.toolTip1.SetToolTip(this.lblPhoneNum, "Enter Physicians  Phone Number");
             // 
             // txtPhoneNum
             // 
@@ -133,6 +145,8 @@
             this.txtPhoneNum.Size = new System.Drawing.Size(100, 20);
             this.txtPhoneNum.TabIndex = 5;
             this.toolTip1.SetToolTip(this.txtPhoneNum, "Enter Physicians  Phone Number");
+            this.txtPhoneNum.TextChanged += new System.EventHandler(this.txtPhoneNum_TextChanged);
+            this.txtPhoneNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhoneNum_KeyPress);
             // 
             // lblLicenseNum
             // 
@@ -142,6 +156,7 @@
             this.lblLicenseNum.Size = new System.Drawing.Size(84, 13);
             this.lblLicenseNum.TabIndex = 13;
             this.lblLicenseNum.Text = "License Number";
+            this.toolTip1.SetToolTip(this.lblLicenseNum, "Insert the physicians 6 digit License Number.");
             // 
             // txtLicenseNum
             // 
@@ -149,10 +164,13 @@
             this.txtLicenseNum.Name = "txtLicenseNum";
             this.txtLicenseNum.Size = new System.Drawing.Size(100, 20);
             this.txtLicenseNum.TabIndex = 6;
-            this.toolTip1.SetToolTip(this.txtLicenseNum, "Enter Physicians  License Number");
+            this.toolTip1.SetToolTip(this.txtLicenseNum, "Insert the physicians 6 digit License Number.");
+            this.txtLicenseNum.TextChanged += new System.EventHandler(this.txtLicenseNum_TextChanged);
+            this.txtLicenseNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLicenseNum_KeyPress);
             // 
             // btnAdd
             // 
+            this.btnAdd.Enabled = false;
             this.btnAdd.Location = new System.Drawing.Point(646, 338);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(102, 29);
@@ -203,6 +221,10 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "General Info";
             // 
+            // epv
+            // 
+            this.epv.ContainerControl = this;
+            // 
             // frmAddPhysician
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,8 +236,10 @@
             this.Controls.Add(this.btnAdd);
             this.Name = "frmAddPhysician";
             this.Text = "frmAddPhysician";
+            this.Load += new System.EventHandler(this.frmAddPhysician_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.epv)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -239,5 +263,6 @@
         private System.Windows.Forms.Label lblAddPhysician;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ErrorProvider epv;
     }
 }

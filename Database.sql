@@ -73,5 +73,3 @@ create table fulfillment(
 	TIME DATETIME not null,
 )
 go
-
-Select productName + ' ' + strength + ' ' + convert(varchar(11), amount) + ' NDC Code ' + NDCPackageCode as combo , NDCPackageCode from [dbo].[drug]

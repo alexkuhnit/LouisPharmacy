@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace FinalProject
 {
@@ -17,67 +11,73 @@ namespace FinalProject
             InitializeComponent();
         }
 
+        string myPatientID;
         private void FillDrugCombo()
         {
-            string connString;
-            SqlConnection conn;
-            connString = "Data Source=DESKTOP-G73GIKA; initial catalog=pharmacy; integrated security=SSPI;";
-            conn = new SqlConnection(connString);
-            SqlCommand cmdString = new SqlCommand("Select productName + ', ' + strength + ', ' + convert(varchar(11), amount) + ' Pills, NDC Code ' + NDCPackageCode as combo , NDCPackageCode from [dbo].[drug]", conn);
+            try
+            {
+                PharmacyDataTier bPharm = new PharmacyDataTier();
+                DataSet ds1 = new DataSet();
+                ds1 = bPharm.FillCBODrug();
 
-            //SqlCommand cmdString = new SqlCommand("Select productName + ' NDC Code ' + NDCPackageCode as combo, NDCPackageCode from [dbo].[drug]", conn);
-            conn.Open();
-            SqlDataReader reader;
-            reader = cmdString.ExecuteReader();
-            DataTable dt = new DataTable();
-            cboDrug.DataSource = dt;
-            dt.Load(reader);
-            cboDrug.DisplayMember = "combo";
-            cboDrug.ValueMember = "NDCPackageCode";
+                //filling combobox
+                cboDrug.DataSource = ds1.Tables[0];
+                cboDrug.DisplayMember = "combo";
+                cboDrug.ValueMember = "NDCPackageCode";
+            }
+            catch (Exception ex)
+            {
+
+            }
+            
         }
         private void FillPhysicianCombo()
         {
-            string connString;
-            SqlConnection conn;
-            connString = "Data Source=DESKTOP-G73GIKA; initial catalog=pharmacy; integrated security=SSPI;";
-            conn = new SqlConnection(connString);
-            SqlCommand cmdString = new SqlCommand("Select lName + ', ' + mInit + ', ' + fName + ' , ID Code ' + convert(varchar(11), PhysicianID) as combo , PhysicianID from [dbo].[physician]", conn);
+            try
+            {
+                PharmacyDataTier bPharm = new PharmacyDataTier();
+                DataSet ds1 = new DataSet();
+                ds1 = bPharm.FillCBOPhysician();
 
-            //SqlCommand cmdString = new SqlCommand("Select productName + ' NDC Code ' + NDCPackageCode as combo, NDCPackageCode from [dbo].[drug]", conn);
-            conn.Open();
-            SqlDataReader reader;
-            reader = cmdString.ExecuteReader();
-            DataTable dt = new DataTable();
-            cboPhysicianID.DataSource = dt;
-            dt.Load(reader);
-            cboPhysicianID.DisplayMember = "combo";
-            cboPhysicianID.ValueMember = "physicianID";
+                //filling combobox
+                cboPhysicianID.DataSource = ds1.Tables[0];
+                cboPhysicianID.DisplayMember = "combo";
+                cboPhysicianID.ValueMember = "physicianID";
+            }
+            catch (Exception ex)
+            {
+
+            }
+            
         }
         private void FillPatientCombo()
         {
-            string connString;
-            SqlConnection conn;
-            connString = "Data Source=DESKTOP-G73GIKA; initial catalog=pharmacy; integrated security=SSPI;";
-            conn = new SqlConnection(connString);
-            SqlCommand cmdString = new SqlCommand("Select lName + ', ' + mInit + ', ' + fName + ' , ID Code ' + convert(varchar(11), patientid) as combo , patientid from [dbo].[patient]", conn);
+            try
+            {
+                PharmacyDataTier bPharm = new PharmacyDataTier();
+                DataSet ds1 = new DataSet();
+                ds1 = bPharm.FillCBOPatient(myPatientID);
 
-            //SqlCommand cmdString = new SqlCommand("Select productName + ' NDC Code ' + NDCPackageCode as combo, NDCPackageCode from [dbo].[drug]", conn);
-            conn.Open();
-            SqlDataReader reader;
-            reader = cmdString.ExecuteReader();
-            DataTable dt = new DataTable();
-            cboPatientID.DataSource = dt;
-            dt.Load(reader);
-            cboPatientID.DisplayMember = "combo";
-            cboPatientID.ValueMember = "patientID";
+                //filling combobox
+                txtPatientID.Text = ds1.Tables[0].Rows[0]["combo"].ToString().Trim();
+            }
+            catch(Exception ex)
+            {
+
+            }
+            
         }
 
         private void frmAddPrescription_Load(object sender, EventArgs e)
         {
+            myPatientID = frmPatientPrescription.myPatientID;
+            if (myPatientID == null)
+            {
+                this.Close();
+            }
             FillDrugCombo();
             FillPhysicianCombo();
             FillPatientCombo();
-            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -96,22 +96,78 @@ namespace FinalProject
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //get the values
-            string patientID = cboPatientID.SelectedValue.ToString();
-            string physicianID = cboPhysicianID.SelectedValue.ToString();
-            string NDCPackageCode = cboDrug.SelectedValue.ToString();
-            string totalRefills = txtRefill.Text.Trim();
-            DateTime time = DateTime.Parse(txtDate.Text.Trim());
+            try
+            {
+                EPV.SetError(cboDrug, "");
+                EPV.SetError(cboPhysicianID, "");
+                string physicianID = cboPhysicianID.SelectedValue.ToString();
+                try
+                {
+                    //get the values
 
-            //Send it throug the datatier
-            PharmacyDataTier bPharm = new PharmacyDataTier();
-            DataSet ds1 = new DataSet();
-            ds1 = bPharm.AddPrescription( NDCPackageCode,  patientID,  physicianID,  totalRefills,  time);
+                    string NDCPackageCode = cboDrug.SelectedValue.ToString();
+                    string totalRefills = txtRefill.Text.Trim();
+                    DateTime time = dtpDatePrescribed.Value;
+
+                    //Send it throug the datatier
+                    PharmacyDataTier bPharm = new PharmacyDataTier();
+                    DataSet ds1 = new DataSet();
+                    ds1 = bPharm.AddPrescription(NDCPackageCode, myPatientID, physicianID, totalRefills, time);
+                    MessageBox.Show("Prescription succesfully added.", "Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception )
+                {
+                    EPV.SetError(cboDrug, "must select a drug from the list");
+                        MessageBox.Show("Must select a drug in the list.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
+                }
+
+            }
+            catch (Exception)
+            {
+                EPV.SetError(cboPhysicianID, "Must select a physician from the list");
+                MessageBox.Show("Must select a physician in the list.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtRefill_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //only allows numbers in txtRefill
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtRefill_TextChanged(object sender, EventArgs e)
+        {
+            //disables the button if the refills is less than 0
+            try
+            {
+                if (int.Parse(txtRefill.Text.Trim()) > 0)
+                {
+                    EPV.SetError(txtRefill, "");
+                    btnAdd.Enabled = true;
+                }
+                else
+                {
+                    EPV.SetError(txtRefill, "Must have one or more fulfillments");
+                    btnAdd.Enabled = false;
+                }
+            }
+            catch (Exception)
+            {
+                EPV.SetError(txtRefill, "Must have one or more fulfillments");
+                btnAdd.Enabled = false;
+            }
+
         }
     }
 }
