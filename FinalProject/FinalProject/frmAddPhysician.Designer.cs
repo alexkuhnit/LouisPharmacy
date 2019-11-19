@@ -235,7 +235,7 @@
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnAdd);
             this.Name = "frmAddPhysician";
-            this.Text = "frmAddPhysician";
+            this.Text = "Add Physician";
             this.Load += new System.EventHandler(this.frmAddPhysician_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

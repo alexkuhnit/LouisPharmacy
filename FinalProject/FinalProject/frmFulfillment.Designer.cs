@@ -55,13 +55,13 @@
             this.btnAddRefill = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.lblRefillsDGV = new System.Windows.Forms.Label();
+            this.lblInfoIcon = new System.Windows.Forms.Label();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.grpRefillActions = new System.Windows.Forms.GroupBox();
             this.btnDeleteRefill = new System.Windows.Forms.Button();
             this.btnUpdateRefill = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.epv = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblInfoIcon = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRefills)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.grpPrescriptionInfo.SuspendLayout();
@@ -331,6 +331,17 @@
             this.lblRefillsDGV.Text = "Refills for this prescription";
             this.toolTip1.SetToolTip(this.lblRefillsDGV, "Double click to update refill information or right click to update or delete.");
             // 
+            // lblInfoIcon
+            // 
+            this.lblInfoIcon.AutoSize = true;
+            this.lblInfoIcon.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfoIcon.Location = new System.Drawing.Point(208, 241);
+            this.lblInfoIcon.Name = "lblInfoIcon";
+            this.lblInfoIcon.Size = new System.Drawing.Size(29, 29);
+            this.lblInfoIcon.TabIndex = 29;
+            this.lblInfoIcon.Text = "🛈";
+            this.toolTip1.SetToolTip(this.lblInfoIcon, "Double click to update refill information or right click to update or delete.");
+            // 
             // grpRefillActions
             // 
             this.grpRefillActions.Controls.Add(this.btnDeleteRefill);
@@ -376,17 +387,6 @@
             // 
             this.epv.ContainerControl = this;
             // 
-            // lblInfoIcon
-            // 
-            this.lblInfoIcon.AutoSize = true;
-            this.lblInfoIcon.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoIcon.Location = new System.Drawing.Point(208, 241);
-            this.lblInfoIcon.Name = "lblInfoIcon";
-            this.lblInfoIcon.Size = new System.Drawing.Size(29, 29);
-            this.lblInfoIcon.TabIndex = 29;
-            this.lblInfoIcon.Text = "🛈";
-            this.toolTip1.SetToolTip(this.lblInfoIcon, "Double click to update refill information or right click to update or delete.");
-            // 
             // frmFulfillment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,7 +400,7 @@
             this.Controls.Add(this.grpPrescriptionInfo);
             this.Controls.Add(this.dgvRefills);
             this.Name = "frmFulfillment";
-            this.Text = "frmFulfillment";
+            this.Text = "Fulfillment";
             this.Activated += new System.EventHandler(this.frmFulfillment_Activated);
             this.Load += new System.EventHandler(this.frmFulfillment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRefills)).EndInit();

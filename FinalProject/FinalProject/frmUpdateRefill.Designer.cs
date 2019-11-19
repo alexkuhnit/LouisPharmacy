@@ -141,7 +141,7 @@
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblPrescriptionID);
             this.Name = "frmUpdateRefill";
-            this.Text = "frmRefill";
+            this.Text = "Refill";
             this.Load += new System.EventHandler(this.frmUpdateRefill_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

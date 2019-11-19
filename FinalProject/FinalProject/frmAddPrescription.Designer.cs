@@ -200,7 +200,7 @@
             this.Controls.Add(this.txtRefill);
             this.Controls.Add(this.cboDrug);
             this.Name = "frmAddPrescription";
-            this.Text = "frmAddPrescription";
+            this.Text = "Add Prescription";
             this.Load += new System.EventHandler(this.frmAddPrescription_Load);
             ((System.ComponentModel.ISupportInitialize)(this.EPV)).EndInit();
             this.ResumeLayout(false);
